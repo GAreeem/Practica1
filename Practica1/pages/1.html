@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="anterior()">Anterior</button>
+<img id="myImage" src="" alt="Imagen" style="width:200px">
+<button onclick="siguiente()">Siguiente</button>
+
+<script>
+// array de urls de imágenes
+var images = [
+    'https://urlImagen1.com',
+    'https://urlImagen2.com',
+    'https://urlImagen3.com',
+    'https://urlImagen4.com',
+    'https://urlImagen5.com'
+];
+
+var index = 0; // para controlar el índice actual de la imagen
+
+document.getElementById('myImage').src = images[0]; // mostrar la primera imagen al cargar la página
+
+// función para mostrar la imagen anterior
+function anterior() {
+    if (index === 0) {
+        index = images.length - 1; // si estamos en la primera imagen, vamos a la última
+    } else {
+        index--; // si no, vamos a la imagen anterior
+    }
+    document.getElementById('myImage').src = images[index]; // actualizamos la imagen
+}
+
+// función para mostrar la siguiente imagen
+function siguiente() {
+    if (index === images.length - 1) {
+        index = 0; // si estamos en la última imagen, vamos a la primera
+    } else {
+        index++; // si no, vamos a la siguiente imagen
+    }
+    document.getElementById('myImage').src = images[index]; // actualizamos la imagen
+}
+</script>
+
+</body>
+</html>
