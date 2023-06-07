@@ -19,8 +19,8 @@
         <div class="row">
           <div class="col">Listado de usuario</div>
           <div class="col text-end">
-            <button class="btn btn-outline-success btn-sm">
-              agregar</button>
+            <a href="/user/user-view" class="btn btn-outline-success btn-sm">
+              agregar</a>
           </div>
         </div>
       </div>
