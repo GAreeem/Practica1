@@ -1,5 +1,4 @@
 package mx.edu.utez.firstapp.models.user;
-import com.mysql.cj.x.protobuf.MysqlxCrud;
 import mx.edu.utez.firstapp.models.crud.DaoRepository;
 import mx.edu.utez.firstapp.utils.MySQLConnection;
 
@@ -60,6 +59,7 @@ public class DaoUser implements DaoRepository<user>{
                 user.setBirthday(rs.getString("birthday"));
                 user.setUsername(rs.getString("username"));
                 user.setStatus(rs.getString("status"));
+
             }
             return user;
         }catch (SQLException e){
@@ -72,16 +72,15 @@ public class DaoUser implements DaoRepository<user>{
 
     @Override
     public boolean save(user object) {
-        try {
+        try{
             conn = new MySQLConnection().connect();
-            String query="INSERT INTO users (name, surname, lastname, username, birthday, status) " +
-                    "VALUES (?, ?, ?, ?, ?, ?);";
+            String query = "INSERT INTO users (name,surname,lastname,username,birthday,status)" + " VALUES (?, ?, ?, ?, ?, ?);";
             pstm = conn.prepareStatement(query);
             pstm.setString(1,object.getName());
             pstm.setString(2,object.getSurname());
             pstm.setString(3, object.getLastname());
-            pstm.setString(4,object.getUsername());
-            pstm.setString(5, object.getBirthday());
+            pstm.setString(4, object.getUsername());
+            pstm.setString(5,object.getBirthday());
             pstm.setString(6, object.getStatus());
             return pstm.executeUpdate() > 0;
         }catch (SQLException e){

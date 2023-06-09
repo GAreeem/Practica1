@@ -73,12 +73,12 @@ public class ServletUser extends HttpServlet{
                 break;
             case "/user/save":
                 name = req.getParameter("name");
-                surname = req.getParameter("suname");
+                surname = req.getParameter("surname");
                 lastname = req.getParameter("lastname");
                 username = req.getParameter("username");
                 birthday = req.getParameter("birthday");
                 status = req.getParameter("status");
-                user user1 = new user(0, name, surname, lastname, birthday,username, status);
+                user user1 = new user(0L, name, surname, lastname, birthday,username, "ACTIVO");
                 boolean result = new DaoUser().save(user1);
                 if (result){
                     redirect = "/user/users?result= " +result
@@ -90,5 +90,6 @@ public class ServletUser extends HttpServlet{
                 }
                 break;
         }
+        resp.sendRedirect(req.getContextPath() + redirect);
     }
 }

@@ -19,7 +19,7 @@
             <div class="card mt-5">
                 <div class="card-header">Registro de usuario</div>
                 <div class="card-body">
-                    <form id="user-form" class="needs-validation" novalidate action="/user/save" method="post">
+                    <form id="user-form" class="needs-validation" novalidate action="/user/save"  method="post">
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col">
