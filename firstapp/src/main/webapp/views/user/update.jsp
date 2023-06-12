@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
-    <title>Registro de usuario</title>
+    <title>Modificacion de usuario</title>
     <jsp:include page="../../layouts/head.jsp"/>
 </head>
 <body>
@@ -19,22 +19,26 @@
             <div class="card mt-5">
                 <div class="card-header">Registro de usuario</div>
                 <div class="card-body">
-                    <form id="user-form" class="needs-validation" novalidate action="/user/save"  method="post">
+                    <form id="user-form" class="needs-validation" novalidate action="/user/update"  method="post">
+                        <input hidden value="${user.id}" name="id"/>
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col">
                                     <label for="name" class="fw-bold">Nombre: </label>
-                                    <input type="text" name="name" id="name" class="form-control" required/>
+                                    <input type="text" name="name" id="name" class="form-control"
+                                           value="${user.name}" required/>
                                     <div class="invalid-feedback">Campo Obligatorio</div>
                                 </div>
                                 <div class="col">
                                     <label for="surname" class="fw-bold">Primer Apellido: </label>
-                                    <input type="text" name="surname" id="surname" class="form-control" required/>
+                                    <input type="text" name="surname" id="surname" class="form-control"
+                                           value="${user.surname}" required/>
                                     <div class="invalid-feedback">Campo Obligatorio</div>
                                 </div>
                                 <div class="col">
                                     <label for="lastname" class="fw-bold">Segundo Apellido: </label>
-                                    <input type="text" name="lastname" id="lastname" class="form-control" required/>
+                                    <input type="text" name="lastname" id="lastname" class="form-control"
+                                           value="${user.lastname}" required/>
                                     <div class="invalid-feedback">Campo Obligatorio</div>
                                 </div>
                             </div>
@@ -43,12 +47,14 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="birthday" class="fw-bold">Fecha de Nacimiento: </label>
-                                    <input type="date" name="birthday" id="birthday" class="form-control" required/>
+                                    <input type="date" name="birthday" id="birthday" class="form-control"
+                                           value="${user.birthday}" required/>
                                     <div class="invalid-feedback">Campo Obligatorio</div>
                                 </div>
                                 <div class="col">
                                     <label for="username" class="fw-bold">Nombre de Usuario: </label>
-                                    <input type="text" name="username" id="username" class="form-control" required/>
+                                    <input type="text" name="username" id="username" class="form-control"
+                                           value="${user.username}" required/>
                                     <div class="invalid-feedback">Campo Obligatorio</div>
                                 </div>
                             </div>
@@ -56,7 +62,7 @@
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col text-end">
-                                    <a href="/user/user" class="btn btn-outline-danger btn-sm">
+                                    <a href="user/users" class="btn btn-outline-danger btn-sm">
                                         CANCELAR
                                     </a>
                                     <button type="submit" class="btn btn-outline-success btn-sm">
