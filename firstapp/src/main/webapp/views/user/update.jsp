@@ -17,10 +17,11 @@
     <div class="row">
         <div class="col">
             <div class="card mt-5">
-                <div class="card-header">Registro de usuario</div>
+                <div class="card-header">Modificacion de usuario</div>
                 <div class="card-body">
                     <form id="user-form" class="needs-validation" novalidate action="/user/update"  method="post">
                         <input hidden value="${user.id}" name="id"/>
+                        <input hidden value="${user.status}" name="status">
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col">
@@ -62,7 +63,7 @@
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col text-end">
-                                    <a href="user/users" class="btn btn-outline-danger btn-sm">
+                                    <a href="/user/users" class="btn btn-outline-danger btn-sm">
                                         CANCELAR
                                     </a>
                                     <button type="submit" class="btn btn-outline-success btn-sm">

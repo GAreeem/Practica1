@@ -116,13 +116,12 @@ public class DaoUser implements DaoRepository<user>{
     public boolean delete(Long id) {
         try{
             conn = new MySQLConnection().connect();
-            String query = "Delete users Where id=?;";
+            String query = "Delete from users Where id=?;";
             pstm = conn.prepareStatement(query);
             pstm.setLong(1,id);
             return pstm.executeUpdate()==1;
         }catch (SQLException e){
-            Logger.getLogger(DaoUser.class.getName())
-                    .log(Level.SEVERE, "Error delete " + e.getMessage());
+            Logger.getLogger(DaoUser.class.getName()).log(Level.SEVERE, "Error delete " + e.getMessage());
         }finally {
             close();
         }

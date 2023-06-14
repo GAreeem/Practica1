@@ -56,7 +56,7 @@
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col text-end">
-                                    <a href="/user/user" class="btn btn-outline-danger btn-sm">
+                                    <a href="/user/users" class="btn btn-outline-danger btn-sm">
                                         CANCELAR
                                     </a>
                                     <button type="submit" class="btn btn-outline-success btn-sm">

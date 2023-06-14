@@ -92,17 +92,39 @@ public class ServletUser extends HttpServlet{
                 username = req.getParameter("username");
                 birthday = req.getParameter("birthday");
                 status = req.getParameter("status");
-                user user1 = new user(0L, name, surname, lastname, birthday,username, "ACTIVO");
+                user user1 = new user(0L, name, surname, lastname, birthday, username, "ACTIVO");
                 boolean result = new DaoUser().save(user1);
-                if (result){
-                    redirect = "/user/users?result= " +result
-                            +"&message=" + URLEncoder.encode("!Exito¡ Usuario Registrado correctamente.", StandardCharsets.UTF_8);
-                }else{
-                    redirect = "/user/users?result= " +result
-                            +"&message=" + URLEncoder.encode("!Error¡ Accion no realizada correctamente.", StandardCharsets.UTF_8);
-
+                if (result) {
+                    redirect = "/user/users?result=" + result + "&message=" + URLEncoder.encode("!Éxito¡ Usuario registrado correctamente.", StandardCharsets.UTF_8);
+                } else {
+                    redirect = "user/users?result=" + result + "&message=" + URLEncoder.encode("!Error¡ Acción no realizada correctamente.", StandardCharsets.UTF_8);
                 }
                 break;
+            case "/user/update":
+                id = req.getParameter("id");
+                name = req.getParameter("name");
+                surname = req.getParameter("surname");
+                lastname = req.getParameter("lastname");
+                username = req.getParameter("username");
+                birthday = req.getParameter("birthday");
+                status = req.getParameter("status");
+                user = new user(Long.parseLong(id), name, surname, lastname, birthday, username, status);
+                if (new DaoUser().update(user)) {
+                    redirect = "/user/users?result=" + true + "&message=" + URLEncoder.encode("!Éxito¡ Usuario actualizado correctamente.", StandardCharsets.UTF_8);
+                } else {
+                    redirect = "/user/users?result=" + false + "&message=" + URLEncoder.encode("!Error¡ Acción no actualizada correctamente.", StandardCharsets.UTF_8);
+                }
+                break;
+            case "/user/delete":
+                id = req.getParameter("id");
+                if(new DaoUser().delete(Long.parseLong(id)))
+                    redirect = "/user/users?result=" + true + "&message=" + URLEncoder.encode("!Éxito¡ Usuario actualizado correctamente.", StandardCharsets.UTF_8);
+                else
+                    redirect = "user/users?result=" + false + "&message=" + URLEncoder.encode("!Error¡ Acción no actualizada correctamente.", StandardCharsets.UTF_8);
+
+                break;
+            default:
+                redirect="/user/users";
         }
         resp.sendRedirect(req.getContextPath() + redirect);
     }
