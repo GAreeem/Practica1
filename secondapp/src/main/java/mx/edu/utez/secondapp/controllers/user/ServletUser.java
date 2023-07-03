@@ -69,7 +69,7 @@ public class ServletUser extends HttpServlet {
                         session = req.getSession();
                         session.setAttribute("user", user);
                         switch (user.getRole().getDescription()) {
-                            case "ADMIN_ROLE":
+                            case "USER_ROLE":
                                 redirect = "/api/pokemon/all";
                                 break;
                             case "ADMIN_ROLE":

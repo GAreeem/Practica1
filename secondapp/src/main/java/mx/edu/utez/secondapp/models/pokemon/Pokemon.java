@@ -9,7 +9,7 @@ public class Pokemon {
     private double hp;
     private double power;
     private double weight;
-    private double heigth;
+    private double height;
     private String abilities;
     private Person person;
     private PokemonType type;
@@ -17,14 +17,14 @@ public class Pokemon {
     public Pokemon() {
     }
 
-    public Pokemon(Long id, String name, double ps, double hp, double power, double weight, double heigth, String abilities, Person person, PokemonType type) {
+    public Pokemon(Long id, String name, double ps, double hp, double power, double weight, double height, String abilities, Person person, PokemonType type) {
         this.id = id;
         this.name = name;
         this.ps = ps;
         this.hp = hp;
         this.power = power;
         this.weight = weight;
-        this.heigth = heigth;
+        this.height = height;
         this.abilities = abilities;
         this.person = person;
         this.type = type;
@@ -78,12 +78,12 @@ public class Pokemon {
         this.weight = weight;
     }
 
-    public double getHeigth() {
-        return heigth;
+    public double getHeight() {
+        return height;
     }
 
-    public void setHeigth(double heigth) {
-        this.heigth = heigth;
+    public void setHeight(double height) {
+        this.height = height;
     }
 
     public String getAbilities() {
