@@ -12,12 +12,13 @@ public class Pokemon {
     private double height;
     private String abilities;
     private Person person;
-    private PokemonType type;
+    private String PokemonType;
+
 
     public Pokemon() {
     }
 
-    public Pokemon(Long id, String name, double ps, double hp, double power, double weight, double height, String abilities, Person person, PokemonType type) {
+    public Pokemon(Long id, String name, double ps, double hp, double power, double weight, double height, String abilities, Person person, String PokemonType) {
         this.id = id;
         this.name = name;
         this.ps = ps;
@@ -102,11 +103,7 @@ public class Pokemon {
         this.person = person;
     }
 
-    public PokemonType getType() {
-        return type;
-    }
+    public String getPokemonType() {return PokemonType;}
 
-    public void setType(PokemonType type) {
-        this.type = type;
-    }
+    public void setPokemonType(String pokemonType) {PokemonType = pokemonType;}
 }

@@ -13,10 +13,11 @@
     <jsp:include page="../../layouts/head.jsp"/>
 </head>
 <body>
+
 <!--- NAV NAVBAR -->
-<div class="container">
+<div class="container mt-5">
     <div class="row">
-        <div class="col">
+        <div class="col-12">
             <h2 class="mt-3 mb-5">POKEMONS</h2>
             <div class="card">
                 <div class="card-header">

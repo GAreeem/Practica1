@@ -1,5 +1,6 @@
 package mx.edu.utez.secondapp.controllers.pokemon;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,6 +19,11 @@ import java.io.IOException;
         "/api/pokemon/update",
         "/api/pokemon/enable-disable",
 })
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024,
+        maxFileSize = 1024*1024*5,
+        maxRequestSize = 1024*1024*100
+)
 public class ServletPokemon extends HttpServlet {
     private String action, redirect = "/api/pokemon/all",
             id, name, ps, hp, weigth, heigth, abilities, power, personid, pokemonType;
@@ -31,7 +37,7 @@ public class ServletPokemon extends HttpServlet {
                 //consultar pokkemons
                 req.setAttribute("pokemons",
                         new DaoPokemon().findAll());
-                redirect ="/view/pokemon/index.jsp";
+                redirect ="/views/pokemon/index.jsp";
                 break;
             case  "/api/pokemon/one":
                 redirect ="/view/pokemon/one.jsp";
